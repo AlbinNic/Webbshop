@@ -1,0 +1,67 @@
+.shop-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 32px;
+    background-color: #111827;
+    color: #d1d5db;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+}
+
+/* Shop info */
+.footer-info {
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+}
+
+/* Footer links */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.footer-links a:hover {
+    color: whitesmoke;
+}
+
+/* Social links */
+.footer-name {
+    display: flex;
+    gap: 16px;
+}
+
+.footer-name a {
+    color: #9ca3af;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.15s ease;
+}
+
+.footer-name a:hover {
+    color: whitesmoke;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .shop-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 16px;
+    }
+
+    .footer-links,
+    .footer-social {
+        gap: 14px;
+    }
+}
