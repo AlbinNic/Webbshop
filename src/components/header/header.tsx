@@ -1,56 +1,49 @@
+import { useState } from "react";
+import type { FormEvent } from "react";
 import "./header.css";
 
+interface NavLink {
+    text: string;
+    href: string;
+}
 
-export function createHeader(): HTMLElement {
-    const header = document.createElement("header");
-    header.className = "shop-header";
+const links: NavLink[] = [
+    { text: "Products", href: "/products" },
+    { text: "About", href: "/about" },
+    { text: "Contact", href: "/contact" },
+];
 
+export function Header() {
+    const [query, setQuery] = useState("");
 
-    const searchForm = document.createElement("form");
-    searchForm.className = "search-bar";
-
-    const searchInput = document.createElement("input");
-    searchInput.type = "text";
-    searchInput.placeholder = "Search products";
-
-    const searchButton = document.createElement("button");
-    searchButton.type = "submit";
-    searchButton.textContent = "Search";
-
-    searchForm.addEventListener("submit", (e: SubmitEvent) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Searching for:", searchInput.value);
-    });
+        console.log("Searching for:", query);
+    };
 
-    searchForm.append(searchInput, searchButton);
+    return (
+        <header className="shop-header">
+            <form className="search-bar" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Search products"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
+                <button type="submit">Search</button>
+            </form>
 
+            <nav className="nav-links">
+                {links.map(({ text, href }) => (
+                    <a key={href} href={href}>
+                        {text}
+                    </a>
+                ))}
+            </nav>
 
-    const nav = document.createElement("nav");
-    nav.className = "nav-links";
-
-    const links = [
-        { text: "Products", href: "/products" },
-        { text: "About", href: "/about" },
-        { text: "Contact", href: "/contact" },
-    ];
-
-    links.forEach(({ text, href }) => {
-        const a = document.createElement("a");
-        a.href = href;
-        a.textContent = text;
-        nav.appendChild(a);
-    });
-
-
-    const cartButton = document.createElement("button");
-    cartButton.className = "cart-button";
-    cartButton.textContent = "Cart";
-    cartButton.addEventListener("click", () => {
-        console.log("Cart clicked");
-    });
-
-    // Assemble
-    header.append(searchForm, nav, cartButton);
-
-    return header;
+            <button className="cart-button" onClick={() => console.log("Cart clicked")}>
+                Cart
+            </button>
+        </header>
+    );
 }
