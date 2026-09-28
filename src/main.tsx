@@ -1,5 +1,5 @@
-import { createHeader } from "./header";
-import { createFooter } from "./footer";
+import { createHeader } from "./components/header/header";
+import { createFooter } from "./components/footer/footer";
 import "./app.css";
 
 document.body.prepend(createHeader());
