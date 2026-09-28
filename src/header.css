@@ -45,7 +45,6 @@
     background-color: #1911b9;
 }
 
-/* Nav links */
 .nav-links {
     display: flex;
     gap: 20px;
@@ -63,7 +62,7 @@
     color: #1911b9;
 }
 
-/* Cart button */
+
 .cart-button {
     padding: 8px 16px;
     border: 1px solid #d1d5db;

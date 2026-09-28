@@ -11,14 +11,14 @@
     font-size: 14px;
 }
 
-/* Shop info */
+
 .footer-info {
     font-weight: 600;
     color: #ffffff;
     letter-spacing: 0.02em;
 }
 
-/* Footer links */
+
 .footer-links {
     display: flex;
     flex-wrap: wrap;
@@ -35,7 +35,6 @@
     color: whitesmoke;
 }
 
-/* Social links */
 .footer-name {
     display: flex;
     gap: 16px;
