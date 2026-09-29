@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import "./header.css";
+import { Link, useNavigate } from "react-router-dom";
 
 interface NavLink {
     text: string;
@@ -8,13 +9,14 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-    { text: "Products", href: "/products" },
-    { text: "About", href: "/about" },
-    { text: "Contact", href: "/contact" },
+    { text: "Produkter", href: "/products" },
+    { text: "Om oss", href: "/about" },
+    { text: "Kontakt", href: "/contact" },
 ];
 
 export function Header() {
     const [query, setQuery] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -23,14 +25,18 @@ export function Header() {
 
     return (
         <header className="shop-header">
+            <Link to="/" className="home-button">
+                webbshop
+            </Link>
+
             <form className="search-bar" onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    placeholder="Search products"
+                    placeholder="Sök produkter..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
-                <button type="submit">Search</button>
+                <button type="submit">Sök</button>
             </form>
 
             <nav className="nav-links">
@@ -41,8 +47,8 @@ export function Header() {
                 ))}
             </nav>
 
-            <button className="cart-button" onClick={() => console.log("Cart clicked")}>
-                Cart
+            <button className="cart-button" onClick={() => navigate("/cart")}>
+                Kundvagn
             </button>
         </header>
     );

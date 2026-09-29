@@ -8,8 +8,8 @@ interface FooterLink {
 const links: FooterLink[] = [
     { text: "Terms of Service", href: "/terms" },
     { text: "Privacy Policy", href: "/privacy" },
-    { text: "Shipping & Returns", href: "/shipping" },
-    { text: "Contact Us", href: "/contact" },
+    { text: "Returer", href: "/shipping" },
+    { text: "Kontakta oss", href: "/contact" },
 ];
 
 const names: string[] = ["Marcus", "Albin", "Jessica"];

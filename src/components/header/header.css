@@ -98,3 +98,15 @@
         gap: 14px;
     }
 }
+
+.home-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.home-button:hover {
+    color: #1911b9;
+}
