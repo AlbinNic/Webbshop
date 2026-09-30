@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ProductCard } from '../ProductCard/ProductCard';
+import { ProductCard } from '../../components/ProductCard/ProductCard';
 import styles from './StartPage.module.css';
 
 import rawData from '../../../db.json'; 

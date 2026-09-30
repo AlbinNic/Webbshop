@@ -21,7 +21,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     : 'product-card product-card--grid';
 
   return (
-    <article className={cardClass}>
+    <article className={cardClass} data-testid="product-card">
       {sale && <span className="product-card__badge-sale">REA</span>}
       
       <div className="product-card__image-container">

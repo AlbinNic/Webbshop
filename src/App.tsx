@@ -6,7 +6,7 @@ import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 // import Kundvagn from './components/kundvagn/kundvagn';
   
-import { StartPage } from './components/startpage/StartPage';
+import { StartPage } from './pages/startpage/StartPage';
 
 const queryClient = new QueryClient();
 
