@@ -1,56 +1,55 @@
+import { useState } from "react";
+import type { FormEvent } from "react";
 import "./header.css";
+import { Link, useNavigate } from "react-router-dom";
 
+interface NavLink {
+    text: string;
+    href: string;
+}
 
-export function createHeader(): HTMLElement {
-    const header = document.createElement("header");
-    header.className = "shop-header";
+const links: NavLink[] = [
+    { text: "Produkter", href: "/products" },
+    { text: "Om oss", href: "/about" },
+    { text: "Kontakt", href: "/contact" },
+];
 
+export function Header() {
+    const [query, setQuery] = useState("");
+    const navigate = useNavigate();
 
-    const searchForm = document.createElement("form");
-    searchForm.className = "search-bar";
-
-    const searchInput = document.createElement("input");
-    searchInput.type = "text";
-    searchInput.placeholder = "Search products";
-
-    const searchButton = document.createElement("button");
-    searchButton.type = "submit";
-    searchButton.textContent = "Search";
-
-    searchForm.addEventListener("submit", (e: SubmitEvent) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log("Searching for:", searchInput.value);
-    });
+        console.log("Searching for:", query);
+    };
 
-    searchForm.append(searchInput, searchButton);
+    return (
+        <header className="shop-header">
+            <Link to="/" className="home-button">
+                webbshop
+            </Link>
 
+            <form className="search-bar" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Sök produkter..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
+                <button type="submit">Sök</button>
+            </form>
 
-    const nav = document.createElement("nav");
-    nav.className = "nav-links";
+            <nav className="nav-links">
+                {links.map(({ text, href }) => (
+                    <a key={href} href={href}>
+                        {text}
+                    </a>
+                ))}
+            </nav>
 
-    const links = [
-        { text: "Products", href: "/products" },
-        { text: "About", href: "/about" },
-        { text: "Contact", href: "/contact" },
-    ];
-
-    links.forEach(({ text, href }) => {
-        const a = document.createElement("a");
-        a.href = href;
-        a.textContent = text;
-        nav.appendChild(a);
-    });
-
-
-    const cartButton = document.createElement("button");
-    cartButton.className = "cart-button";
-    cartButton.textContent = "Cart";
-    cartButton.addEventListener("click", () => {
-        console.log("Cart clicked");
-    });
-
-    // Assemble
-    header.append(searchForm, nav, cartButton);
-
-    return header;
+            <button className="cart-button" onClick={() => navigate("/cart")}>
+                Kundvagn
+            </button>
+        </header>
+    );
 }
