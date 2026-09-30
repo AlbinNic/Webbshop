@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import type { Product } from "../../types";
 import "./kundvagn.css";
 
@@ -8,33 +9,27 @@ interface CartItem {
     quantity: number;
 }
 
-const API_URL = "http://localhost:3001/products";
+const API_URL = "http://localhost:3000/products";
+
+async function fetchProducts(): Promise<Product[]> {
+    const res = await fetch(API_URL);
+    if (!res.ok) throw new Error("Kunde inte hämta produkter");
+    return res.json();
+}
 
 export default function Kundvagn() {
-    const [items, setItems] = useState<CartItem[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const res = await fetch(API_URL);
-                if (!res.ok) throw new Error("Kunde inte hämta produkter");
-                const products: Product[] = await res.json();
+    const { data: products, isLoading, isError } = useQuery({
+        queryKey: ["products"],
+        queryFn: fetchProducts,
+    });
 
-                setItems(
-                    products.slice(0, 2).map((product) => ({ product, quantity: 1 }))
-                );
-            } catch (err) {
-                setError(err instanceof Error ? err.message : "Något gick fel");
-            } finally {
-                setLoading(false);
-            }
-        }
+    const [items, setItems] = useState<CartItem[]>([]);
 
-        fetchProducts();
-    }, []);
+    if (products && items.length === 0 && products.length > 0) {
+        setItems(products.slice(0, 2).map((product) => ({ product, quantity: 1 })));
+    }
 
     const updateQuantity = (productId: number, quantity: number) => {
         if (quantity < 1) {
@@ -52,7 +47,7 @@ export default function Kundvagn() {
 
     const totalPrice = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
 
-    if (loading) {
+    if (isLoading) {
         return (
             <div className="cart-page">
                 <h1>Din kundvagn</h1>
@@ -61,11 +56,11 @@ export default function Kundvagn() {
         );
     }
 
-    if (error) {
+    if (isError) {
         return (
             <div className="cart-page">
                 <h1>Din kundvagn</h1>
-                <p className="cart-error">{error}. Kör json-server på {API_URL}?</p>
+                <p className="cart-error">Kunde inte hämta produkter. Kör json-server på {API_URL}?</p>
             </div>
         );
     }
