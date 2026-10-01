@@ -10,16 +10,17 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-
+         <Header />
         <main> 
           <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
-
+            <Route path="/cart" element={<Kundvagn />} />
             <Route path="*" element={<Navigate to="/" replace />} />
+            
           </Routes>
         </main>
-
+        <Footer />
       </BrowserRouter>
     </QueryClientProvider>
   )

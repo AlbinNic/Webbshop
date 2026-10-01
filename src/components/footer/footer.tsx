@@ -1,52 +1,39 @@
 import "./footer.css";
 
-export function createFooter(): HTMLElement {
-    const footer = document.createElement("footer");
-    footer.className = "shop-footer";
+interface FooterLink {
+    text: string;
+    href: string;
+}
 
-    // Shop info
-    const info = document.createElement("div");
-    info.className = "footer-info";
-    info.textContent = "webshop.com";
+const links: FooterLink[] = [
+    { text: "Terms of Service", href: "/terms" },
+    { text: "Privacy Policy", href: "/privacy" },
+    { text: "Returer", href: "/shipping" },
+    { text: "Kontakta oss", href: "/contact" },
+];
 
+const names: string[] = ["Marcus", "Albin", "Jessica"];
 
-    const linksContainer = document.createElement("div");
-    linksContainer.className = "footer-links";
+export function Footer() {
+    return (
+        <footer className="shop-footer">
+            <div className="footer-info">webshop.com</div>
 
-    const links = [
-        { text: "Terms of Service", href: "/terms" },
-        { text: "Privacy Policy", href: "/privacy" },
-        { text: "Shipping & Returns", href: "/shipping" },
-        { text: "Contact Us", href: "/contact" },
-    ];
+            <div className="footer-links">
+                {links.map(({ text, href }) => (
+                    <a key={href} href={href}>
+                        {text}
+                    </a>
+                ))}
+            </div>
 
-    links.forEach(({ text, href }) => {
-        const a = document.createElement("a");
-        a.href = href;
-        a.textContent = text;
-        linksContainer.appendChild(a);
-    });
-
- 
-    const nameContainer = document.createElement("div");
-    nameContainer.className = "footer-name";
-
-    const names = [
-        { text: "Marcus"},
-        { text: "Albin"},
-        { text: "Jessica"},
-    ];
-
-    names.forEach(({ text }) => {
-        const a = document.createElement("a");
-        a.target = "_blank";
-        a.rel = "noopener noreferrer";
-        a.textContent = text;
-        nameContainer.appendChild(a);
-    });
-
-    // Assemble
-    footer.append(info, linksContainer, nameContainer);
-
-    return footer;
+            <div className="footer-name">
+                {names.map((name) => (
+                    <a key={name} target="_blank" rel="noopener noreferrer">
+                        {name}
+                    </a>
+                ))}
+            </div>
+        </footer>
+    );
 }
