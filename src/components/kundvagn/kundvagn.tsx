@@ -105,7 +105,7 @@ export default function Kundvagn() {
             {items.length > 0 && (
                 <div className="cart-summary">
                     <p className="cart-total">Totalt: {totalPrice} kr</p>
-                    <button type="button" className="cart-checkout-button" onClick={() => navigate("lägg betalings route här!!!!!")}>
+                    <button type="button" className="cart-checkout-button" onClick={() => navigate("/kassa")}>
                         Till kassan
                     </button>
                 </div>
