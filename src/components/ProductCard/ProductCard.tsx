@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Product } from '../../types';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 interface ProductCardProps {
   product: Product;
@@ -38,12 +39,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <p className="product-card__price">{price} kr</p>
 
         {onAddToCart && (
-          <button 
-            className="product-card__button"
-            onClick={() => onAddToCart(product)}
-          >
-            Lägg i kundvagn
-          </button>
+          <AddToCartButton 
+            product={product} 
+            onAddToCart={onAddToCart} 
+          />
         )}
       </div>
     </article>
