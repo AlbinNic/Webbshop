@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { StartPage } from "../pages/startpage/StartPage";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { StartPage } from "../pages/StartPage/StartPage";
 import rawData from "../../db.json";
 
 vi.mock("@tanstack/react-query", async () => {
@@ -13,17 +13,16 @@ vi.mock("@tanstack/react-query", async () => {
 });
 
 import { useQuery } from "@tanstack/react-query";
+import { MemoryRouter } from "react-router-dom";
 
-// Aktiviera när StartPage använder useQuery
-
-//const renderWithQuery = (ui: React.ReactNode) => {
-//    const client = new QueryClient();
-//    return render(
-//        <QueryClientProvider client={client}>
-//            {ui}
-//        </QueryClientProvider>
-//    );
-//};
+const renderWithQuery = (ui: React.ReactNode) => {
+    const client = new QueryClient();
+    return render(
+        <QueryClientProvider client={client}>
+            {ui}
+        </QueryClientProvider>
+    );
+};
 
 
 describe("StartPage", () => {
@@ -35,7 +34,11 @@ describe("StartPage", () => {
             data: rawData.products,
         });
 
-        render(<StartPage />); // Byt till renderWithQuery när StartPage använder useQuery
+        renderWithQuery(
+            <MemoryRouter>
+            <StartPage />
+            </MemoryRouter>
+        ); 
 
         const firstCategory = rawData.products[0].categories[0];
 
@@ -55,7 +58,11 @@ describe("StartPage", () => {
             isError: false,
             data: rawData.products,
         });
-        render(<StartPage />); // Byt till renderWithQuery när StartPage använder useQuery
+        renderWithQuery(
+            <MemoryRouter>
+            <StartPage />
+            </MemoryRouter>
+        ); 
 
         const before = screen.queryAllByTestId("product-card").length;
 
@@ -72,7 +79,11 @@ describe("StartPage", () => {
             isError: false,
             data: rawData.products,
         });
-        render(<StartPage />); // Byt till renderWithQuery när StartPage använder useQuery
+        renderWithQuery(  
+            <MemoryRouter>
+            <StartPage />
+            </MemoryRouter>
+        ); 
 
         fireEvent.click(screen.getByText("C4"));
         fireEvent.click(screen.getByText("Visa alla"));
