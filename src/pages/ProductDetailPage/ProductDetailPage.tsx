@@ -15,7 +15,9 @@ const ProductDetailPage = () => {
 
     if (isLoading) return <p>Loading...</p>;
     if (isError) return <p>Error loading product</p>
-    if (!product) return <p>Product not found</p> 
+    if (!product || product.error) {
+        throw new Error("Product not found");
+    } 
 
     return (
         <div className={styles.mainContainer}>
