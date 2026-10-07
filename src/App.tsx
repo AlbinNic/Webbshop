@@ -5,6 +5,7 @@ import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage'
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import { StartPage } from './pages/StartPage/StartPage';
+import OrderConfirmation from './pages/OrderConfirmationPage/OrderConfirmationPage';
 
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<StartPage />} />
             <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="/orderconfirmation/:id" element={<OrderConfirmation />} />
             <Route path="*" element={<Navigate to="/" replace />} />
             
           </Routes>
