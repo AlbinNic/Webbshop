@@ -5,6 +5,7 @@ import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage'
 import { Header } from "./components/header/header";
 import { Footer } from "./components/footer/footer";
 import { StartPage } from './pages/StartPage/StartPage';
+import OrderConfirmation from './pages/OrderConfirmationPage/OrderConfirmationPage';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { ProductFallback } from './components/ErrorBoundary/fallbacks/ProductFallback';
 import { NotFoundFallback } from './components/ErrorBoundary/fallbacks/NotFoundFallback';
@@ -20,7 +21,7 @@ function App() {
         <main> 
           <Routes>
             <Route path="/" element={<StartPage />} />
-            
+
             <Route 
               path="/product/:id" 
               element={
@@ -29,7 +30,9 @@ function App() {
                 </ErrorBoundary>
               }
             />
-            
+
+            <Route path="/orderconfirmation/:id" element={<OrderConfirmation />} />
+
             <Route 
               path="*" 
               element={
