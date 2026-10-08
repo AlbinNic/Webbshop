@@ -3,9 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
 import type { Product } from "../../types.ts";
 import styles from "./ProductDetailPage.module.css";
+import { AddToCartButton } from "../../components/AddToCartButton/AddToCartButton.tsx";
 
 const ProductDetailPage = () => {
     const { id } = useParams();
+
+    const handleAddToCart = (product: Product) => {
+        alert(`${product.title} lades i korgen!`);
+    };
 
     const { data: product, isLoading, isError } = useQuery<Product>({
         queryKey: ["product", id],
@@ -27,7 +32,10 @@ const ProductDetailPage = () => {
 
             <div className={styles.info}>
                 <p>{product.description}</p>
-                <button>detta ska va kundvagn sen</button>
+                <AddToCartButton 
+                    product={product}
+                    onAddToCart={handleAddToCart}
+                />
             </div>
         </div>
     )
