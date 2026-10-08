@@ -47,9 +47,9 @@ export function Header() {
                 ))}
             </nav>
 
-            <button className="cart-button" onClick={() => navigate("/cart")}>
-                Kundvagn
-            </button>
+                <button className="cart-button" onClick={() => navigate("/cart")}>
+                    Kundvagn
+                </button>
         </header>
     );
 }

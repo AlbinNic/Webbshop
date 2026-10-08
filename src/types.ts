@@ -7,6 +7,7 @@ export interface Product {
     sale: boolean;
     image: string;
     stock: number;
+    error?: string;
 }
 
 export interface Category {

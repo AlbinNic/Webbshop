@@ -3,18 +3,32 @@ import { useQuery } from "@tanstack/react-query";
 import { ProductCard } from "../../components/ProductCard/ProductCard";
 import type { Product } from "../../types.ts";
 import styles from "./ProductDetailPage.module.css";
+import { AddToCartButton } from "../../components/AddToCartButton/AddToCartButton.tsx";
 
-const ProductDetailPage = () => {
+
+interface ProductDetailPageProps {
+  onAddToCart: (product: Product) => void;
+}
+
+const ProductDetailPage = ({
+  onAddToCart
+}: ProductDetailPageProps) => {
+
     const { id } = useParams();
 
-    const { data: product, isLoading, error } = useQuery<Product>({
+
+
+    const { data: product, isLoading, isError } = useQuery<Product>({
         queryKey: ["product", id],
         queryFn: () =>
             fetch(`http://localhost:3000/products/${id}`).then((res) => res.json()),
     });
 
     if (isLoading) return <p>Loading...</p>;
-    if (error || !product) return <p>Product not found</p> 
+    if (isError) return <p>Error loading product</p>
+    if (!product || product.error) {
+        throw new Error("Product not found");
+    } 
 
     return (
         <div className={styles.mainContainer}>
@@ -24,7 +38,10 @@ const ProductDetailPage = () => {
 
             <div className={styles.info}>
                 <p>{product.description}</p>
-                <button>detta ska va kundvagn sen</button>
+                <AddToCartButton 
+                    product={product}
+                    onAddToCart={onAddToCart}
+                />
             </div>
         </div>
     )

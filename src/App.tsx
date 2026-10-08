@@ -1,14 +1,23 @@
-import { useState } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import './App.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage'
-import { StartPage } from './components/startpage/StartPage';
-import { Header } from "./components/header/header";
-import { Footer } from "./components/footer/footer";
+
+import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './App.css';
+
+import ProductDetailPage from './pages/ProductDetailPage/ProductDetailPage';
+import { StartPage } from './pages/StartPage/StartPage';
+import { Header } from './components/header/header';
+import { Footer } from './components/footer/footer';
+
 import Kundvagn from './components/kundvagn/kundvagn';
-import Kassa from './components/kassa/kassa';
 import type { Product, CartItem } from './types';
+import Kassa from './components/kassa/kassa';
+import OrderConfirmation from './pages/OrderConfirmationPage/OrderConfirmationPage';
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
+import { ProductFallback } from './components/ErrorBoundary/fallbacks/ProductFallback';
+import { NotFoundFallback } from './components/ErrorBoundary/fallbacks/NotFoundFallback';
+import { OrderConfirmationFallback } from './components/ErrorBoundary/fallbacks/OrderConfirmationFallback';
+import { TestPage } from './pages/TestPage';
 
 const queryClient = new QueryClient();
 
@@ -17,7 +26,10 @@ function App() {
 
   const addToCart = (product: Product) => {
     setItems((prev) => {
-      const existing = prev.find((item) => item.product.id === product.id);
+      const existing = prev.find(
+        (item) => item.product.id === product.id
+      );
+
       if (existing) {
         return prev.map((item) =>
           item.product.id === product.id
@@ -30,16 +42,26 @@ function App() {
   };
 
   const removeItem = (productId: number) => {
-    setItems((prev) => prev.filter((item) => item.product.id !== productId));
+    setItems((prev) =>
+      prev.filter((item) => item.product.id !== productId)
+    );
   };
 
-  const updateQuantity = (productId: number, quantity: number) => {
+  const updateQuantity = (
+    productId: number,
+    quantity: number
+  ) => {
     if (quantity < 1) {
       removeItem(productId);
       return;
     }
+
     setItems((prev) =>
-      prev.map((item) => (item.product.id === productId ? { ...item, quantity } : item))
+      prev.map((item) =>
+        item.product.id === productId
+          ? { ...item, quantity }
+          : item
+      )
     );
   };
 
@@ -49,20 +71,63 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<StartPage onAddToCart={addToCart} />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route
+              path="/"
+              element={
+                <StartPage onAddToCart={addToCart} />
+              }
+            />
+          
+            <Route
+              path="/product/:id"
+              element={
+                <ErrorBoundary fallback={<ProductFallback />}>
+                  <ProductDetailPage onAddToCart={addToCart} />
+                </ErrorBoundary>
+              }
+            />
+
             <Route
               path="/cart"
-              element={<Kundvagn items={items} onUpdateQuantity={updateQuantity} onRemove={removeItem} />}
+              element={
+                <Kundvagn
+                  items={items}
+                  onUpdateQuantity={updateQuantity}
+                  onRemove={removeItem}
+                />
+              }
             />
-            <Route path="/kassa" element={<Kassa />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+
+              <Route
+                path="/kassa"
+                element={<Kassa />}
+              />
+
+            <Route
+              path="/orderconfirmation/:id"
+              element={
+                <ErrorBoundary fallback={<OrderConfirmationFallback />}>
+                  <OrderConfirmation />
+                </ErrorBoundary>
+              }
+            />
+
+            <Route path="/test" element={<TestPage />} />
+
+            <Route
+              path="*"
+              element={
+                <ErrorBoundary fallback={<NotFoundFallback />}>
+                  <NotFoundFallback />
+                </ErrorBoundary>
+              }
+            />
           </Routes>
         </main>
         <Footer />
       </BrowserRouter>
     </QueryClientProvider>
-  )
+  );
 }
 
-export default App
+export default App;
