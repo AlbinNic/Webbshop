@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import styles from "./Form.module.css";
 
 const customerSchema = z.object({
-    name: z.string().min(2, "Namnet måste vara minst två tecken"),
+    firstname: z.string().min(2, "Namnet måste vara minst två tecken"),
+    lastname: z.string().min(2, "Namnet måste vara minst två tecken"),
     adress: z.string().min(5, "Adressen måste vara minst fem tecken"),
     postnummer: z.string().regex(/^\d{5}$/, "Ange ett korrekt postnummer"),
     postort: z.string().min(2, "Postort måste vara minst två bokstäver"),
@@ -23,47 +25,52 @@ export function CustomerForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <h2>Dina uppgifter</h2>
-            <label>
-                Förnamn
-                <input {...register("name")} />
-            </label>
-            {errors.name && <p>{errors.name.message}</p>}
-            <label>
-                Efternamn
-                <input {...register("name")} />
-            </label>
-            {errors.name && <p>{errors.name.message}</p>}
+        <form className={styles.wrapper} onSubmit={handleSubmit(submit)}>
+            <h2 className={styles.title}>Dina uppgifter</h2>
 
-            <label>
-                Adress
-                <input {...register("adress")} />
-            </label>
-            {errors.adress && <p>{errors.adress.message}</p>}
-            <label>
-                Postnummer
-                <input {...register("postnummer")} />
-            </label>
-            {errors.postnummer && <p>{errors.postnummer.message}</p>}
-            <label>
-                Postort
-                <input {...register("postort")} />
-            </label>
-            {errors.postort && <p>{errors.postort.message}</p>}
+            <div className={styles.formField}>
+                <label htmlFor="firstname">Förnamn</label>
+                <input id="firstname" {...register("firstname")} />
+                {errors.firstname && <p className={styles.error}>{errors.firstname.message}</p>}
+            </div>
 
-            <label>
-                Mobilnummer
-                <input {...register("mobilnummer")} />
-            </label>
-            {errors.mobilnummer && <p>{errors.mobilnummer.message}</p>}
-            <label>
-                Email
-                <input {...register("email")} />
-            </label>
-            {errors.email && <p>{errors.email.message}</p>}
+            <div className={styles.formField}>
+                <label htmlFor="lastname">Efternamn</label>
+                <input id="lastname" {...register("lastname")} />
+                {errors.lastname && <p className={styles.error}>{errors.lastname.message}</p>}
+            </div>
 
-            <button disabled={!isValid}>Nästa</button>
+            <div className={styles.formField}>
+                <label htmlFor="adress">Adress</label>
+                <input id="adress" {...register("adress")} />
+                {errors.adress && <p className={styles.error}>{errors.adress.message}</p>}
+            </div>
+
+            <div className={styles.formField}>
+                <label htmlFor="postnummer">Postnummer</label>
+                <input id="postnummer" {...register("postnummer")} />
+                {errors.postnummer && <p className={styles.error}>{errors.postnummer.message}</p>}
+            </div>
+
+            <div className={styles.formField}>
+                <label htmlFor="postort">Postort</label>
+                <input id="postort" {...register("postort")} />
+                {errors.postort && <p className={styles.error}>{errors.postort.message}</p>}
+            </div>
+
+            <div className={styles.formField}>
+                <label htmlFor="mobilnummer">Mobilnummer</label>
+                <input id="mobilnummer" {...register("mobilnummer")} />
+                {errors.mobilnummer && <p className={styles.error}>{errors.mobilnummer.message}</p>}
+            </div>
+
+             <div className={styles.formField}>
+                <label htmlFor="email">Email</label>
+                <input id="email" {...register("email")} />
+                {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+            </div>
+
+            <button className={styles.button} disabled={!isValid}>Nästa</button>
         </form>
     )
 }

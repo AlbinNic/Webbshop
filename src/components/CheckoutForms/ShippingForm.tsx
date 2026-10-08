@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import styles from "./Form.module.css";
 
 const shippingSchema = z.object({
     shipping: z.enum(["DHL", "Schenker", "PostNord", "Early Bird", "Instabox", "Bring"]),
@@ -19,8 +20,10 @@ export function ShippingForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <h2>Fraktsätt</h2>
+        <form className={styles.wrapper} onSubmit={handleSubmit(submit)}>
+            <h2 className={styles.title}>Fraktsätt</h2>
+
+            <div className={styles.radioGroup}>
             <label>
                 <input type="radio" value="DHL" {...register("shipping")} />
                 DHL
@@ -45,10 +48,11 @@ export function ShippingForm() {
                 <input type="radio" value="Bring" {...register("shipping")} />
                 Bring
             </label>
+            </div>
 
-            {errors.shipping && <p>Du måste välja ett fraktsätt!</p>}
+            {errors.shipping && <p className={styles.error}>Du måste välja ett fraktsätt!</p>}
 
-            <button disabled={!isValid}>Nästa</button>
+            <button className={styles.button} disabled={!isValid}>Nästa</button>
         </form>
     )
 }

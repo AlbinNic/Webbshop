@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import styles from "./Form.module.css";
 
 const paymentSchema = z.object({
     shipping: z.enum(["Kort", "Swish", "Klarna", "PayPal"]),
@@ -19,8 +20,10 @@ export function PaymentForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(submit)}>
-            <h2>Betalsätt</h2>
+        <form className={styles.wrapper} onSubmit={handleSubmit(submit)}>
+            <h2 className={styles.title}>Betalsätt</h2>
+
+            <div className={styles.radioGroup}>
             <label>
                 <input type="radio" value="Kort" {...register("shipping")} />
                 Kort
@@ -37,10 +40,11 @@ export function PaymentForm() {
                 <input type="radio" value="PayPal" {...register("shipping")} />
                 PayPal
             </label>
+            </div>
 
-            {errors.shipping && <p>Du måste välja ett betalsätt!</p>}
+            {errors.shipping && <p className={styles.error}>Du måste välja ett betalsätt!</p>}
 
-            <button disabled={!isValid}>Slutför</button>
+            <button className={styles.button} disabled={!isValid}>Slutför</button>
         </form>
     )
 }
