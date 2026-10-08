@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { ProductCard } from '../ProductCard/ProductCard';
 import styles from './StartPage.module.css';
+import type { Product } from '../../types';
 
-import rawData from '../../../db.json'; 
+import rawData from '../../../db.json';
 
-export const StartPage: React.FC = () => {
+interface StartPageProps {
+  onAddToCart: (product: Product) => void;
+}
+
+export const StartPage: React.FC<StartPageProps> = ({ onAddToCart }) => {
   const allProducts = rawData.products;
 
   const [activeCategory, setActiveCategory] = useState<string>('Alla');
@@ -14,10 +19,6 @@ export const StartPage: React.FC = () => {
   const displayedProducts = activeCategory === 'Alla'
     ? allProducts
     : allProducts.filter(p => p.categories.includes(activeCategory));
-
-  const handleAddToCart = (product: any) => {
-    alert(`${product.title} lades i korgen!`);
-  };
 
   return (
     <div className={styles.mainContainer}>
@@ -41,7 +42,7 @@ export const StartPage: React.FC = () => {
             key={product.id}
             product={product}
             variant="grid"
-            onAddToCart={handleAddToCart}
+            onAddToCart={onAddToCart}
           />
         ))}
       </div>
