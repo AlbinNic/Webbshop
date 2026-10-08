@@ -9,11 +9,8 @@ import OrderConfirmation from './pages/OrderConfirmationPage/OrderConfirmationPa
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { ProductFallback } from './components/ErrorBoundary/fallbacks/ProductFallback';
 import { NotFoundFallback } from './components/ErrorBoundary/fallbacks/NotFoundFallback';
-<<<<<<< HEAD
 import { TestPage } from './pages/TestPage';
-=======
 import { OrderConfirmationFallback } from './components/ErrorBoundary/fallbacks/OrderConfirmationFallback';
->>>>>>> origin/main
 
 
 const queryClient = new QueryClient();
