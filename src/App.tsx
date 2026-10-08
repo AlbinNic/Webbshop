@@ -11,7 +11,7 @@ import { ProductFallback } from './components/ErrorBoundary/fallbacks/ProductFal
 import { NotFoundFallback } from './components/ErrorBoundary/fallbacks/NotFoundFallback';
 import { TestPage } from './pages/TestPage';
 import { OrderConfirmationFallback } from './components/ErrorBoundary/fallbacks/OrderConfirmationFallback';
-
+import { CheckoutPage } from './pages/CheckoutPage/CheckoutPage';
 
 const queryClient = new QueryClient();
 
@@ -33,6 +33,7 @@ function App() {
               }
             />
 
+            <Route path="/checkout" element={<CheckoutPage />} />
             <Route 
               path="/orderconfirmation/:id" 
               element={
