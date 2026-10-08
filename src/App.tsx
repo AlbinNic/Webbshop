@@ -9,6 +9,7 @@ import OrderConfirmation from './pages/OrderConfirmationPage/OrderConfirmationPa
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import { ProductFallback } from './components/ErrorBoundary/fallbacks/ProductFallback';
 import { NotFoundFallback } from './components/ErrorBoundary/fallbacks/NotFoundFallback';
+import { TestPage } from './pages/TestPage';
 
 
 const queryClient = new QueryClient();
@@ -41,6 +42,8 @@ function App() {
                 </ErrorBoundary>
               }
             />
+
+            <Route path="/test" element={<TestPage />} /> {/* Temporärt för att testa formulären */}
             
           </Routes>
         </main>
