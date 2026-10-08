@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Product } from '../../types';
+import { AddToCartButton } from '../AddToCartButton/AddToCartButton';
 
 interface ProductCardProps {
   product: Product;
@@ -21,7 +22,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     : 'product-card product-card--grid';
 
   return (
-    <article className={cardClass}>
+    <article className={cardClass} data-testid="product-card">
       {sale && <span className="product-card__badge-sale">REA</span>}
       
       <div className="product-card__image-container">
@@ -38,12 +39,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         <p className="product-card__price">{price} kr</p>
 
         {onAddToCart && (
-          <button 
-            className="product-card__button"
-            onClick={() => onAddToCart(product)}
-          >
-            Lägg i kundvagn
-          </button>
+          <AddToCartButton 
+            product={product} 
+            onAddToCart={onAddToCart} 
+          />
         )}
       </div>
     </article>
