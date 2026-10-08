@@ -11,7 +11,7 @@ type ShippingFormData = z.infer<typeof shippingSchema>;
 export function ShippingForm() {
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<ShippingFormData>({
         resolver: zodResolver(shippingSchema),
-        mode: "onTouched",
+        mode: "all",
     });
 
     function submit(data: ShippingFormData) {
