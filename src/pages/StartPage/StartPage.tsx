@@ -13,7 +13,15 @@ const fetchProducts = async (): Promise<Product[]> => {
   return response.json();
 };
 
-export const StartPage: React.FC = () => {
+
+interface StartPageProps {
+  onAddToCart: (product: Product) => void;
+}
+
+export const StartPage: React.FC<StartPageProps> = ({
+  onAddToCart
+}) => {
+
   const [activeCategory, setActiveCategory] = useState<string>('Alla');
 
   const { data: allProducts = [], isLoading, isError, error } = useQuery<Product[]>({
@@ -27,9 +35,7 @@ export const StartPage: React.FC = () => {
     ? allProducts
     : allProducts.filter((p: Product) => p.categories.includes(activeCategory));
 
-  const handleAddToCart = (product: Product) => {
-    alert(`${product.title} lades i korgen!`);
-  };
+
 
   if (isLoading) return <div className={styles.mainContainer}>Laddar produkter...</div>;
   if (isError) return <div className={styles.mainContainer}>Ett fel uppstod: {(error as Error).message}</div>;
@@ -64,7 +70,7 @@ export const StartPage: React.FC = () => {
             <ProductCard
               product={product}
               variant="grid"
-              onAddToCart={handleAddToCart}
+              onAddToCart={onAddToCart}
             />
           </Link>
         ))}

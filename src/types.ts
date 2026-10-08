@@ -14,3 +14,9 @@ export interface Category {
   id: string;
   title: string;
 }
+
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
