@@ -9,7 +9,11 @@ const shippingSchema = z.object({
 
 type ShippingFormData = z.infer<typeof shippingSchema>;
 
-export function ShippingForm() {
+interface ShippingFormProps {
+    onSubmitSuccess: (data: ShippingFormData) => void;
+}
+
+export function ShippingForm({ onSubmitSuccess }: ShippingFormProps) {
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<ShippingFormData>({
         resolver: zodResolver(shippingSchema),
         mode: "all",
@@ -17,6 +21,7 @@ export function ShippingForm() {
 
     function submit(data: ShippingFormData) {
         console.log("Shipping:", data);
+        onSubmitSuccess(data);
     }
 
     return (
