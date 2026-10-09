@@ -112,3 +112,13 @@
             "image remove";
     }
 }
+
+.cart-list--readonly .cart-item {
+  grid-template-columns: 64px minmax(0, 1fr) auto auto;
+}
+
+@media (max-width: 700px) {
+  .cart-list--readonly .cart-item {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+}
