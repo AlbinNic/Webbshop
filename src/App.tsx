@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
@@ -14,7 +13,6 @@ import { ErrorBoundary } from "./components/ErrorBoundary/ErrorBoundary";
 import { ProductFallback } from "./components/ErrorBoundary/fallbacks/ProductFallback";
 import { NotFoundFallback } from "./components/ErrorBoundary/fallbacks/NotFoundFallback";
 import { OrderConfirmationFallback } from "./components/ErrorBoundary/fallbacks/OrderConfirmationFallback";
-import { TestPage } from "./pages/TestPage";
 import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
 import { CartProvider, useCart } from "./components/context/Cartcontext";
@@ -72,9 +70,6 @@ function AppRoutes() {
               </ErrorBoundary>
             }
           />
-
-          {/* Testsida */}
-          <Route path="/test" element={<TestPage />} />
 
           {/* Om sidan inte hittas */}
           <Route path="*" element={<NotFoundFallback />} />
