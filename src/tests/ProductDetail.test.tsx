@@ -31,7 +31,9 @@ describe("ProductDetailPage", () => {
             data: null,
         });
 
-        renderWithQuery(<ProductDetailPage />);
+        const mockAdd = vi.fn();
+
+        renderWithQuery(<ProductDetailPage onAddToCart={mockAdd} />);
         expect(screen.getByText(/loading/i)).toBeTruthy();
     });
 
@@ -42,7 +44,9 @@ describe("ProductDetailPage", () => {
             data: null,
         });
 
-        renderWithQuery(<ProductDetailPage />);
+        const mockAdd = vi.fn();
+
+        renderWithQuery(<ProductDetailPage onAddToCart={mockAdd} />);
         expect(screen.getByText(/error loading product/i)).toBeTruthy();
     });
 
@@ -57,7 +61,9 @@ describe("ProductDetailPage", () => {
             },
         });
 
-        renderWithQuery(<ProductDetailPage />);
+        const mockAdd = vi.fn();
+
+        renderWithQuery(<ProductDetailPage onAddToCart={mockAdd} />);
         expect(screen.getByText("Testprodukt")).toBeTruthy();
     });
 
@@ -72,8 +78,10 @@ describe("ProductDetailPage", () => {
             },
         });
 
-        renderWithQuery(<ProductDetailPage />);
+        const mockAdd = vi.fn();
 
-        expect(screen.getByText("Testprodukt")).toBeTruthy();
+        renderWithQuery(<ProductDetailPage onAddToCart={mockAdd} />);
+
+        expect(screen.getAllByText("Testprodukt")).toBeTruthy();
     });
 });
