@@ -354,8 +354,13 @@
   "orders": [
     {
       "customer": {
+<<<<<<< HEAD
         "firstname": "111",
         "lastname": "111",
+=======
+        "firstname": "Albin",
+        "lastname": "Nicander",
+>>>>>>> e366e7372ad49c8186fd698e7361c878917cb15f
         "adress": "11111",
         "postnummer": "11111",
         "postort": "11111",
@@ -369,6 +374,7 @@
         "shipping": "Kort"
       },
       "date": "09/10/2026",
+<<<<<<< HEAD
       "id": "_Slxn15aQrU"
     },
     {
@@ -427,6 +433,9 @@
       },
       "date": "09/10/2026",
       "id": "24sSOxQgRgI"
+=======
+      "id": "PQFFV7QI2Z4"
+>>>>>>> e366e7372ad49c8186fd698e7361c878917cb15f
     },
     {
       "customer": {
@@ -445,6 +454,7 @@
         "shipping": "Kort"
       },
       "date": "09/10/2026",
+<<<<<<< HEAD
       "id": "7SANA_WtwkE"
     },
     {
@@ -484,6 +494,9 @@
       },
       "date": "09/10/2026",
       "id": "lH7fGA_UXFA"
+=======
+      "id": "TxLaZT93eiY"
+>>>>>>> e366e7372ad49c8186fd698e7361c878917cb15f
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
