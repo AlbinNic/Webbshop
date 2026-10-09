@@ -15,6 +15,7 @@ import { ProductFallback } from "./components/ErrorBoundary/fallbacks/ProductFal
 import { NotFoundFallback } from "./components/ErrorBoundary/fallbacks/NotFoundFallback";
 import { OrderConfirmationFallback } from "./components/ErrorBoundary/fallbacks/OrderConfirmationFallback";
 import { TestPage } from "./pages/TestPage";
+import { CheckoutPage } from "./pages/CheckoutPage/CheckoutPage";
 
 import { CartProvider, useCart } from "./components/context/Cartcontext";
 const queryClient = new QueryClient();
@@ -54,6 +55,11 @@ function AppRoutes() {
                 onRemove={removeItem}
               />
             }
+          />
+          {/* Kassa */}
+          <Route
+            path="/kassa"
+            element={<CheckoutPage />}
           />
 
 
