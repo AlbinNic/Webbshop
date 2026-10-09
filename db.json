@@ -53,7 +53,7 @@
     {
       "id": "5",
       "title": "Mjölk",
-      "description": "1,5L 3% ARLA KO. Färsk standardmjölk från Arla, levererad av Arlabönder som är fast beslutna att göra det med mer omsorg om djuren och hänsyn till klimatet. Den fylliga smaken med inslag av grädde gör att mjölken passar i kaffe och kan med fördel användas i matlagningen. Mjölk är en naturlig källa till protein, kalcium och vitamin B12. Protein bidrar till muskeluppbyggnad och kalcium behövs för att bibehålla en normal benstomme. Varumärket Arla Ko® garanterar 100% svensk mjölk.",
+      "description": "1,5L 3% ARLA KO. Färsk standardmjölk från Arla, levererad av Arlabönder som är fast beslutna att göra det med mer omsorg om djuren och hänsyn till klimatet. Den fylliga smaken med inslag av grädde gör dat att mjölken passar i kaffe och kan med fördel användas i matlagningen. Mjölk är en naturlig källa till protein, kalcium och vitamin B12. Protein bidrar till muskeluppbyggnad och kalcium behövs för att bibehålla en normal benstomme. Varumärket Arla Ko® garanterar 100% svensk mjölk.",
       "price": 19,
       "categories": [
         "C2"
@@ -210,186 +210,15 @@
     {
       "id": "17",
       "title": "Pepsi Max",
-      "description": "1,5L LÄSK PET PEPSI. Njut av den uppfriskande smaken av Pepsi Max, maximum taste no sugar. Perfekt som törstsläckare och idealisk till din favoritmat. Pepsi är ett av världens starkaste varumärken och Pepsi Max är ett av de mest sålda läskvarumärkena i det sockerfria läsksegmentet. Pepsi Max är en sockerfri cola med en bra balans mellan söta och syrliga toner. Njut av din Pepsi Max för dig själv eller tillsammans med vänner och familj. Pepsi Max är en läsk som passar både vegetarianer och veganer. Pepsi Max bör serveras väl kyld, gärna med is. Varför inte prova en smaksatt cola, såsom Pepsi Max Lime? Våra burkar och flaskor kan återvinnas, så glöm inte att panta!",
-      "price": 18,
+      "description": "1,5L LÄSK PET PEPSI. Njut av den uppfriskande smaken av Pepsi Max, maximum taste no sugar. Perfekt som törstsläckare och idealisk till din favoritmat. Pepsi Max är en sockerfri cola med en bra balans mellan söta och syrliga toner.",
+      "price": 20,
       "categories": [
         "C5"
       ],
       "sale": false,
       "image": "/images/pepsi.jpeg",
       "stock": 25
-    },
-    {
-      "id": "18",
-      "title": "Pärondryck Mindre Socker",
-      "description": "3-pack pärondryck med 30% mindre socker. 25 cl.",
-      "price": 12,
-      "categories": [
-        "C5"
-      ],
-      "sale": false,
-      "image": "/images/paron.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "19",
-      "title": "Mango Loco Juiced",
-      "description": "50CL ENERGIDRYCK BURK MONSTER ENERGY. Mango Loco är en himelsk blandning av exotiska juicer tillsammans med Monster energys energimix. En uppfriskande energidryck som levererar när som helst på dagen. Mango loco har en kombination av tropiska smaker, med mango som huvudsmak tillsammans med guava och ananas.",
-      "price": 18,
-      "categories": [
-        "C5"
-      ],
-      "sale": false,
-      "image": "/images/monster.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "20",
-      "title": "Bryggkaffe Mellanrost",
-      "description": "450G GEVALIA. Gevalia Mellanrost Brygg är Sveriges är vårt `Originalkaffe` som består av det bästa som kaffevärlden har att erbjuda. Det är en perfekt blandning av utvalda bönor från Östafrika och Sydamerika, som ger ett välbalanserat kaffe med härlig arom och en lätt syrlig eftersmak.",
-      "price": 68,
-      "categories": [
-        "C5",
-        "C7"
-      ],
-      "sale": false,
-      "image": "/images/kaffe.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "21",
-      "title": "Fusilli",
-      "description": "500G GARANT. Fusili. Pasta gjord på durumvete. 500 gram.",
-      "price": 14,
-      "categories": [
-        "C7"
-      ],
-      "sale": false,
-      "image": "/images/pasta.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "22",
-      "title": "Tomater Finkrossade",
-      "description": "1,2KG 3-PACK MUTTI.",
-      "price": 42,
-      "categories": [
-        "C7"
-      ],
-      "sale": false,
-      "image": "/images/mutti.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "23",
-      "title": "Cheez Doodles",
-      "description": "225G OLW. Ostbågar, ostkrokar eller cheez doodles - kärt barn har många namn. OLWs ostbågar är Sveriges mest sålda snacks, och vi förstår varför. Spröda och frasiga majsbågar som smaksatts med mild ostkrydda. En riktig klassiker till fredagsmyset. Njut och bestäm själv om du vill bjuda!",
-      "price": 29,
-      "categories": [
-        "C6"
-      ],
-      "sale": false,
-      "image": "/images/ostbage.jpeg",
-      "stock": 25
-    },
-    {
-      "id": "24",
-      "title": "Salta Pinnar",
-      "description": "250G GARANT. Salta pinnar. En riktig snacksklassiker med grova saltkorn.",
-      "price": 21,
-      "categories": [
-        "C6"
-      ],
-      "sale": false,
-      "image": "/images/saltap.jpeg",
-      "stock": 25
     }
   ],
-  "categories": [
-    {
-      "id": "C1",
-      "title": "Frukt & Grönt"
-    },
-    {
-      "id": "C2",
-      "title": "Mejeri"
-    },
-    {
-      "id": "C3",
-      "title": "Bröd"
-    },
-    {
-      "id": "C4",
-      "title": "Kött & Fågel"
-    },
-    {
-      "id": "C5",
-      "title": "Dryck"
-    },
-    {
-      "id": "C6",
-      "title": "Snacks"
-    },
-    {
-      "id": "C7",
-      "title": "Skafferi"
-    },
-    {
-      "id": "C8",
-      "title": "Frys"
-    },
-    {
-      "id": "C9",
-      "title": "Ekologiskt"
-    },
-    {
-      "id": "C10",
-      "title": "Frukost"
-    },
-    {
-      "id": "C11",
-      "title": "Mellanmål"
-    }
-  ],
-  "orders": [
-    {
-      "customer": {
-        "firstname": "Albin",
-        "lastname": "Nicander",
-        "adress": "11111",
-        "postnummer": "11111",
-        "postort": "11111",
-        "mobilnummer": "0701234756",
-        "email": "test@mail.se"
-      },
-      "shipping": {
-        "shipping": "PostNord"
-      },
-      "payment": {
-        "shipping": "Kort"
-      },
-      "date": "09/10/2026",
-      "id": "PQFFV7QI2Z4"
-    },
-    {
-      "customer": {
-        "firstname": "Albin",
-        "lastname": "Nicander",
-        "adress": "11111",
-        "postnummer": "11111",
-        "postort": "11111",
-        "mobilnummer": "0701234756",
-        "email": "test@mail.se"
-      },
-      "shipping": {
-        "shipping": "DHL"
-      },
-      "payment": {
-        "shipping": "Kort"
-      },
-      "date": "09/10/2026",
-      "id": "TxLaZT93eiY"
-    }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  "orders": []
 }
