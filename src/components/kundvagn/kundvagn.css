@@ -1,0 +1,124 @@
+.cart-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+.cart-empty {
+    color: #6b7280;
+}
+
+.cart-error {
+    color: #dc2626;
+}
+
+.cart-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 64px 1fr auto auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.cart-item-image {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.cart-item-title {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cart-item-price {
+    margin: 4px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-item-quantity button {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-item-subtotal {
+    margin: 0;
+    font-weight: 600;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.cart-total {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.cart-checkout-button {
+    padding: 10px 20px;
+    background-color: #1911b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .cart-item {
+        grid-template-columns: 48px 1fr;
+        grid-template-areas:
+            "image info"
+            "image quantity"
+            "image subtotal"
+            "image remove";
+    }
+}
+
+.cart-list--readonly .cart-item {
+  grid-template-columns: 64px minmax(0, 1fr) auto auto;
+}
+
+@media (max-width: 700px) {
+  .cart-list--readonly .cart-item {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+}

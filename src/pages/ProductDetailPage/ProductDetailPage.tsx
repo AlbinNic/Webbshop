@@ -5,12 +5,18 @@ import type { Product } from "../../types.ts";
 import styles from "./ProductDetailPage.module.css";
 import { AddToCartButton } from "../../components/AddToCartButton/AddToCartButton.tsx";
 
-const ProductDetailPage = () => {
+
+interface ProductDetailPageProps {
+  onAddToCart: (product: Product) => void;
+}
+
+const ProductDetailPage = ({
+  onAddToCart
+}: ProductDetailPageProps) => {
+
     const { id } = useParams();
 
-    const handleAddToCart = (product: Product) => {
-        alert(`${product.title} lades i korgen!`);
-    };
+
 
     const { data: product, isLoading, isError } = useQuery<Product>({
         queryKey: ["product", id],
@@ -34,7 +40,7 @@ const ProductDetailPage = () => {
                 <p>{product.description}</p>
                 <AddToCartButton 
                     product={product}
-                    onAddToCart={handleAddToCart}
+                    onAddToCart={onAddToCart}
                 />
             </div>
         </div>

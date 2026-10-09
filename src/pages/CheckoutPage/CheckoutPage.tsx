@@ -1,29 +1,47 @@
+
 import CheckoutFlow from "../../components/CheckoutForms/CheckoutFlow";
 import styles from "./CheckoutPage.module.css";
+import { useCart } from "../../components/context/Cartcontext";
+import { CartItemList } from "../../components/kundvagn/CartItemList";
 
 export function CheckoutPage() {
+  const { items, totalPrice } = useCart();
+
+  const totalQuantity = items.reduce(
+    (sum, item) => sum + item.quantity,
+    0
+  );
+
   return (
     <div className={styles.container}>
-      <h1 className={styles.mainTitle}>Kassa & Utcheckning</h1>
-      
+      <h1 className={styles.mainTitle}>
+        Kassa & Utcheckning
+      </h1>
+
       <div className={styles.layoutGrid}>
-        <main className={styles.formSection}>
+        <section className={styles.formSection}>
           <CheckoutFlow />
-        </main>
+        </section>
 
         <aside className={styles.summarySection}>
           <div className={styles.summaryBox}>
-            <h2 className={styles.summaryTitle}>Din varukorg</h2>
-            
-            <div className={styles.cartPlaceholder}>
-              <p className={styles.infoText}>
-                Produkterna i din varukorg visas här i ett låst läge (ej redigerbart).
-              </p>
-            </div>
+            <h2 className={styles.summaryTitle}>
+              Din varukorg
+            </h2>
 
-            <div className={styles.totalPriceRow}>
-              <span>Totalt att betala:</span>
-              <strong>0.00 kr</strong>
+            <CartItemList
+              items={items}
+              editable={false}
+            />
+
+            <div className="checkout-total">
+              <h2>Ordersammanfattning</h2>
+
+              <p>Antal produkter: {totalQuantity}</p>
+
+              <h3>
+                Att betala: {totalPrice} kr
+              </h3>
             </div>
           </div>
         </aside>
