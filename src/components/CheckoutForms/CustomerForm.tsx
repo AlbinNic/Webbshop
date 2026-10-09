@@ -15,13 +15,18 @@ const customerSchema = z.object({
 
 type CustomerFormData = z.infer<typeof customerSchema>;
 
-export function CustomerForm() {
+interface CustomerFormProps {
+    onSubmitSuccess: (data: CustomerFormData) => void;
+}
+
+export function CustomerForm({ onSubmitSuccess }: CustomerFormProps) {
     const { register, handleSubmit, formState: { errors, isValid } } = useForm({
         resolver: zodResolver(customerSchema),
         mode: "onChange",
     });
     function submit(data: CustomerFormData) {
         console.log("Customer data:", data)
+        onSubmitSuccess(data);
     }
 
     return (

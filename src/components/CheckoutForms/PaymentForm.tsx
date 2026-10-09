@@ -9,7 +9,11 @@ const paymentSchema = z.object({
 
 type PaymentFormData = z.infer<typeof paymentSchema>;
 
-export function PaymentForm() {
+interface PaymentFormProps {
+    onSubmitSuccess: (data: PaymentFormData) => void;
+}
+
+export function PaymentForm({ onSubmitSuccess }: PaymentFormProps) {
     const { register, handleSubmit, formState: { errors, isValid } } = useForm<PaymentFormData>({
         resolver: zodResolver(paymentSchema),
         mode: "all",
@@ -17,6 +21,7 @@ export function PaymentForm() {
 
     function submit(data: PaymentFormData) {
         console.log("Payment:", data);
+        onSubmitSuccess(data);
     }
 
     return (

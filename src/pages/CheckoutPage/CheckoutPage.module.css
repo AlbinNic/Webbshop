@@ -1,0 +1,60 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: sans-serif;
+}
+
+.mainTitle {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.formSection {
+  background: #ffffff;
+}
+
+.summarySection {
+  align-self: start;
+}
+
+.summaryBox {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.summaryTitle {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+}
+
+.cartPlaceholder {
+  margin-bottom: 1.5rem;
+}
+
+.infoText {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.totalPriceRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.15rem;
+  border-top: 2px solid #e0e0e0;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
