@@ -1,260 +1,395 @@
 {
-    "products": [
+  "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Gurka Sverige",
       "description": "310G KLASS 1, SVERIGE. Färsk gurka. Passar bra i salladen eller på smörgåsen.",
       "price": 18,
-      "categories": [ "C1" ],
+      "categories": [
+        "C1"
+      ],
       "sale": false,
       "image": "/images/gurka.jpeg",
       "stock": 25
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Banan Eko",
       "description": "170G KLASS 1, ECUADOR. En ekologiskt odlad banan. Bananer passar bra som mellanmål. Bananen är temperaturkänslig, mycket känslig för uttorkning, etylen och kylskador. Förvaras i rumstemperatur eller svalt, aldrig i kylskåp.",
       "price": 4,
-      "categories": [ "C1", "C9", "C11" ],
+      "categories": [
+        "C1",
+        "C9",
+        "C11"
+      ],
       "sale": false,
       "image": "/images/banan.jpeg",
       "stock": 25
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Blåbär 125g",
       "description": "125G KLASS 1, POLEN. Blåbär har ett fast fruktkött och en söt smak. Passar i bakverk, desserter, frukosten, smoothies eller att ätas bara som de är.",
       "price": 30,
-      "categories": [ "C1" ],
+      "categories": [
+        "C1"
+      ],
       "sale": false,
       "image": "/images/blabar.jpeg",
       "stock": 25
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Purjolök",
       "description": "200G KLASS 1, SVERIGE.",
       "price": 10,
-      "categories": [ "C1" ],
+      "categories": [
+        "C1"
+      ],
       "sale": false,
       "image": "/images/purjo.jpeg",
       "stock": 25
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Mjölk",
       "description": "1,5L 3% ARLA KO. Färsk standardmjölk från Arla, levererad av Arlabönder som är fast beslutna att göra det med mer omsorg om djuren och hänsyn till klimatet. Den fylliga smaken med inslag av grädde gör att mjölken passar i kaffe och kan med fördel användas i matlagningen. Mjölk är en naturlig källa till protein, kalcium och vitamin B12. Protein bidrar till muskeluppbyggnad och kalcium behövs för att bibehålla en normal benstomme. Varumärket Arla Ko® garanterar 100% svensk mjölk.",
       "price": 19,
-      "categories": [ "C2" ],
+      "categories": [
+        "C2"
+      ],
       "sale": false,
       "image": "/images/mjolk.jpeg",
       "stock": 25
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Cherry-Licious Yoghurt",
       "description": "1KG 2% YOGGI. Lyxigt krämig fruktyoghurt med smak av körsbär. Yoggi yoghurt är gott för hela familjen och passar både stor och liten, servera till frukost, som ett snabbt mellanmål eller en enkel dessert.",
       "price": 24,
-      "categories": [ "C2", "C10", "C11" ],
+      "categories": [
+        "C2",
+        "C10",
+        "C11"
+      ],
       "sale": false,
       "image": "/images/cherry.jpeg",
       "stock": 25
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Filmjölk Ekologisk",
       "description": "1KG 3% GARANT EKO. Ekologisk filmjölk från våra svenska gårdar.",
       "price": 17,
-      "categories": [ "C2", "C9", "C10" ],
+      "categories": [
+        "C2",
+        "C9",
+        "C10"
+      ],
       "sale": false,
       "image": "/images/filmjolk.jpeg",
       "stock": 25
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Keso Naturell",
       "description": "500G 4% KESO. Krämig färskost med grynig konsistens, tillverkad av svensk mjölk från Arlagårdar. För att bli krämig och smakrik blandas ostkornen med mjölk, grädde och lite salt. KESO® Cottage Cheese 4% är nyckelhålsmärkt och har ett naturligt högt proteininnehåll med 13g protein/100g vilket mättar bra. Ät som den är eller tillsammans med det du gillar. Använd som proteinrik huvudingrediens eller som tillbehör som röra, topping eller dipp vid matlagning och bakning. KESO® passar utmärkt som ett gott mellanmål, exempelvis vid träning. Symbolen med den blågula mjölkkannan garanterar 100 procent svensk mjölk. Kartongbägaren är gjord av FSC-märkt pappersfiber.",
       "price": 29,
-      "categories": [ "C2", "C11" ],
+      "categories": [
+        "C2",
+        "C11"
+      ],
       "sale": false,
       "image": "/images/keso.jpeg",
       "stock": 25
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Lingongrova",
       "description": "500G PÅGEN. Bästa starten på dagen! Sveriges mest älskade bröd är en oumbärlig del av frukosten. Fullkorn, surdeg och svenska lingon gör LingonGrova till en riktigt god start på vilken morgon som helst.",
       "price": 22,
-      "categories": [ "C3", "C10" ],
+      "categories": [
+        "C3",
+        "C10"
+      ],
       "sale": false,
       "image": "/images/lingong.jpeg",
       "stock": 25
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Lantgoda Surdegsbröd",
       "description": "650G PÅGEN. RUSTIKT OCH SMAKRIKT Lantgoda är ett mjukt och smakrikt surdegsbröd bakat på fullkornsmjöl. Brödet får sin nötiga karaktär av extra fin kallpressad rapsolja från Österlen. Njut av en skiva Lantgoda, ett rustikt surdegsbröd!",
       "price": 31,
-      "categories": [ "C3", "C10", "C11" ],
+      "categories": [
+        "C3",
+        "C10",
+        "C11"
+      ],
       "sale": false,
       "image": "/images/lantbrod.jpeg",
       "stock": 25
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Skogaholmslimpa",
       "description": "775G SKOGAHOLM. Skogaholmslimpan är en riktig bröd klassiker, en limpa som aldrig går ur tiden, passar också utmärkt att rosta. Perfekt för hela familjen och alla tillfällen. Bakad med vete, siktat rågmjöl och sirap har den en mjuk och saftig konsistens och en underbar smak. Denna limpa är en riktig favorit för stor som liten. Bred din macka med smör, lägg på ost eller prickig korv och ät den till frukost, eller packa ner den tillsammans med varm choklad i matsäcken för en härlig picknick ute i naturen.",
       "price": 24,
-      "categories": [ "C3", "C10", "C11" ],
+      "categories": [
+        "C3",
+        "C10",
+        "C11"
+      ],
       "sale": false,
       "image": "/images/skogaholmslimpa.jpeg",
       "stock": 25
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Rågbröd Danskt",
       "description": "400G SOLROS- OCH LINFRÖN PÅGEN. Ett äkta danskt rågbröd som smakar bäst ”hver gang”! Fylligt, mjukt och saftigt med en tydlig syrlighet och nötig ton. En självklarhet till smørrebrød, och gott till frukost när du behöver mättande och god energi.",
       "price": 25,
-      "categories": [ "C3", "C10" ],
+      "categories": [
+        "C3",
+        "C10"
+      ],
       "sale": false,
       "image": "/images/ragbrod.jpeg",
       "stock": 25
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Blandfärs 50/50",
       "description": "900G. Blandfärs har en lite högre fetthalt än flera av de andra färserna. Då den är gjord på både nöt-och fläskfärs är det viktigt att tillaga den ordentligt. Utöver det kan du använda blandfärsen till alla möjliga saker. Allt som kräver färs egentligen.",
       "price": 113,
-      "categories": [ "C4" ],
+      "categories": [
+        "C4"
+      ],
       "sale": false,
       "image": "/images/blandfars.jpeg",
       "stock": 25
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Kycklingkebab",
       "description": "700G FRYST ELDORADO. Djupfryst kycklingkebab. 700 gram.",
       "price": 68,
-      "categories": [ "C4", "C8" ],
+      "categories": [
+        "C4",
+        "C8"
+      ],
       "sale": false,
       "image": "/images/kycklingkebab.jpeg",
       "stock": 25
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Lövbiff",
       "description": "600G. Lövbiffen, nötkreaturens egen tusenkonstnär. Strimla den och använd i wok eller pastasås, eller snabbgryta, eller som rullad eller i sallad eller… En riktigt stor lövbiff kallas ibland för elefantöra. Nu vet du det!",
       "price": 174,
-      "categories": [ "C4" ],
+      "categories": [
+        "C4"
+      ],
       "sale": false,
       "image": "/images/lofbiff.jpeg",
       "stock": 25
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Chicken Nuggets",
       "description": "350G FRYSTA GULDFÅGELN.",
       "price": 40,
-      "categories": [ "C4", "C8" ],
+      "categories": [
+        "C4",
+        "C8"
+      ],
       "sale": false,
       "image": "/images/cn.jpeg",
       "stock": 25
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "Pepsi Max",
       "description": "1,5L LÄSK PET PEPSI. Njut av den uppfriskande smaken av Pepsi Max, maximum taste no sugar. Perfekt som törstsläckare och idealisk till din favoritmat. Pepsi är ett av världens starkaste varumärken och Pepsi Max är ett av de mest sålda läskvarumärkena i det sockerfria läsksegmentet. Pepsi Max är en sockerfri cola med en bra balans mellan söta och syrliga toner. Njut av din Pepsi Max för dig själv eller tillsammans med vänner och familj. Pepsi Max är en läsk som passar både vegetarianer och veganer. Pepsi Max bör serveras väl kyld, gärna med is. Varför inte prova en smaksatt cola, såsom Pepsi Max Lime? Våra burkar och flaskor kan återvinnas, så glöm inte att panta!",
       "price": 18,
-      "categories": [ "C5" ],
+      "categories": [
+        "C5"
+      ],
       "sale": false,
       "image": "/images/pepsi.jpeg",
       "stock": 25
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "Pärondryck Mindre Socker",
       "description": "3-pack pärondryck med 30% mindre socker. 25 cl.",
       "price": 12,
-      "categories": [ "C5" ],
+      "categories": [
+        "C5"
+      ],
       "sale": false,
       "image": "/images/paron.jpeg",
       "stock": 25
     },
     {
-      "id": 19,
+      "id": "19",
       "title": "Mango Loco Juiced",
       "description": "50CL ENERGIDRYCK BURK MONSTER ENERGY. Mango Loco är en himelsk blandning av exotiska juicer tillsammans med Monster energys energimix. En uppfriskande energidryck som levererar när som helst på dagen. Mango loco har en kombination av tropiska smaker, med mango som huvudsmak tillsammans med guava och ananas.",
       "price": 18,
-      "categories": [ "C5" ],
+      "categories": [
+        "C5"
+      ],
       "sale": false,
       "image": "/images/monster.jpeg",
       "stock": 25
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Bryggkaffe Mellanrost",
       "description": "450G GEVALIA. Gevalia Mellanrost Brygg är Sveriges är vårt `Originalkaffe` som består av det bästa som kaffevärlden har att erbjuda. Det är en perfekt blandning av utvalda bönor från Östafrika och Sydamerika, som ger ett välbalanserat kaffe med härlig arom och en lätt syrlig eftersmak.",
       "price": 68,
-      "categories": [ "C5", "C7" ],
+      "categories": [
+        "C5",
+        "C7"
+      ],
       "sale": false,
       "image": "/images/kaffe.jpeg",
       "stock": 25
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Fusilli",
       "description": "500G GARANT. Fusili. Pasta gjord på durumvete. 500 gram.",
       "price": 14,
-      "categories": [ "C7" ],
+      "categories": [
+        "C7"
+      ],
       "sale": false,
       "image": "/images/pasta.jpeg",
       "stock": 25
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Tomater Finkrossade",
       "description": "1,2KG 3-PACK MUTTI.",
       "price": 42,
-      "categories": [ "C7" ],
+      "categories": [
+        "C7"
+      ],
       "sale": false,
       "image": "/images/mutti.jpeg",
       "stock": 25
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Cheez Doodles",
       "description": "225G OLW. Ostbågar, ostkrokar eller cheez doodles - kärt barn har många namn. OLWs ostbågar är Sveriges mest sålda snacks, och vi förstår varför. Spröda och frasiga majsbågar som smaksatts med mild ostkrydda. En riktig klassiker till fredagsmyset. Njut och bestäm själv om du vill bjuda!",
       "price": 29,
-      "categories": [ "C6" ],
+      "categories": [
+        "C6"
+      ],
       "sale": false,
       "image": "/images/ostbage.jpeg",
       "stock": 25
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Salta Pinnar",
       "description": "250G GARANT. Salta pinnar. En riktig snacksklassiker med grova saltkorn.",
       "price": 21,
-      "categories": [ "C6" ],
+      "categories": [
+        "C6"
+      ],
       "sale": false,
       "image": "/images/saltap.jpeg",
       "stock": 25
     }
-    ],
-
-    "categories": [
-        { "id": "C1", "title": "Frukt & Grönt" },
-        { "id": "C2", "title": "Mejeri" },
-        { "id": "C3", "title": "Bröd" },
-        { "id": "C4", "title": "Kött & Fågel" },
-        { "id": "C5", "title": "Dryck" },
-        { "id": "C6", "title": "Snacks" },
-        { "id": "C7", "title": "Skafferi" },
-        { "id": "C8", "title": "Frys" },
-        { "id": "C9", "title": "Ekologiskt" },
-        { "id": "C10", "title": "Frukost" },
-        { "id": "C11", "title": "Mellanmål" }
-    ],
-
-    "orders": []
+  ],
+  "categories": [
+    {
+      "id": "C1",
+      "title": "Frukt & Grönt"
+    },
+    {
+      "id": "C2",
+      "title": "Mejeri"
+    },
+    {
+      "id": "C3",
+      "title": "Bröd"
+    },
+    {
+      "id": "C4",
+      "title": "Kött & Fågel"
+    },
+    {
+      "id": "C5",
+      "title": "Dryck"
+    },
+    {
+      "id": "C6",
+      "title": "Snacks"
+    },
+    {
+      "id": "C7",
+      "title": "Skafferi"
+    },
+    {
+      "id": "C8",
+      "title": "Frys"
+    },
+    {
+      "id": "C9",
+      "title": "Ekologiskt"
+    },
+    {
+      "id": "C10",
+      "title": "Frukost"
+    },
+    {
+      "id": "C11",
+      "title": "Mellanmål"
+    }
+  ],
+  "orders": [
+    {
+      "customer": {
+        "firstname": "Albin",
+        "lastname": "Nicander",
+        "adress": "11111",
+        "postnummer": "11111",
+        "postort": "11111",
+        "mobilnummer": "0701234756",
+        "email": "test@mail.se"
+      },
+      "shipping": {
+        "shipping": "PostNord"
+      },
+      "payment": {
+        "shipping": "Kort"
+      },
+      "date": "09/10/2026",
+      "id": "PQFFV7QI2Z4"
+    },
+    {
+      "customer": {
+        "firstname": "Albin",
+        "lastname": "Nicander",
+        "adress": "11111",
+        "postnummer": "11111",
+        "postort": "11111",
+        "mobilnummer": "0701234756",
+        "email": "test@mail.se"
+      },
+      "shipping": {
+        "shipping": "DHL"
+      },
+      "payment": {
+        "shipping": "Kort"
+      },
+      "date": "09/10/2026",
+      "id": "TxLaZT93eiY"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
