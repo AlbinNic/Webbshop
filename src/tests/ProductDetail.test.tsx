@@ -1,73 +1,79 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, screen, cleanup } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
-import type { UseQueryResult } from "@tanstack/react-query";
-import type { ReactNode } from "react";
+import { describe, it, expect, vi } from "vitest";
+import { render, screen } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ProductDetailPage from "../pages/ProductDetailPage/ProductDetailPage";
 
+
 vi.mock("@tanstack/react-query", async () => {
-    const actual = await vi.importActual<typeof import("@tanstack/react-query")>(
-        "@tanstack/react-query"
-    );
+    const actual = await vi.importActual<any>("@tanstack/react-query");
     return {
         ...actual,
         useQuery: vi.fn(),
     };
 });
 
-function mockQuery(result: { isLoading: boolean; isError: boolean; data: unknown }) {
-    vi.mocked(useQuery).mockReturnValue(result as unknown as UseQueryResult);
-}
+import { useQuery } from "@tanstack/react-query";
 
-function renderPage(ui: ReactNode) {
+const renderWithQuery = (ui: React.ReactNode) => {
     const client = new QueryClient();
     return render(
         <QueryClientProvider client={client}>
-            <MemoryRouter>{ui}</MemoryRouter>
+            {ui}
         </QueryClientProvider>
     );
-}
-
-afterEach(() => {
-    cleanup();
-    vi.clearAllMocks();
-});
+};
 
 describe("ProductDetailPage", () => {
     it("visar loading", () => {
-        mockQuery({ isLoading: true, isError: false, data: null });
+        (useQuery as any).mockReturnValue({
+            isLoading: true,
+            isError: false,
+            data: null,
+        });
 
-        renderPage(<ProductDetailPage onAddToCart={vi.fn()} />);
+        renderWithQuery(<ProductDetailPage />);
         expect(screen.getByText(/loading/i)).toBeTruthy();
     });
 
     it("visar error", () => {
-        mockQuery({ isLoading: false, isError: true, data: null });
+        (useQuery as any).mockReturnValue({
+            isLoading: false,
+            isError: true,
+            data: null,
+        });
 
-        renderPage(<ProductDetailPage onAddToCart={vi.fn()} />);
+        renderWithQuery(<ProductDetailPage />);
         expect(screen.getByText(/error loading product/i)).toBeTruthy();
     });
 
     it("visar produktdata", () => {
-        mockQuery({
+        (useQuery as any).mockReturnValue({
             isLoading: false,
             isError: false,
-            data: { id: 1, title: "Testprodukt", price: 100 },
+            data: {
+                id: 1,
+                title: "Testprodukt",
+                price: 100,
+            },
         });
 
-        renderPage(<ProductDetailPage onAddToCart={vi.fn()} />);
+        renderWithQuery(<ProductDetailPage />);
         expect(screen.getByText("Testprodukt")).toBeTruthy();
     });
 
     it("kraschar inte om description saknas", () => {
-        mockQuery({
+        (useQuery as any).mockReturnValue({
             isLoading: false,
             isError: false,
-            data: { id: 1, title: "Testprodukt", price: 100 },
+            data: {
+                id: 1,
+                title: "Testprodukt",
+                price: 100,
+            },
         });
 
-        renderPage(<ProductDetailPage onAddToCart={vi.fn()} />);
+        renderWithQuery(<ProductDetailPage />);
+
         expect(screen.getByText("Testprodukt")).toBeTruthy();
     });
 });
