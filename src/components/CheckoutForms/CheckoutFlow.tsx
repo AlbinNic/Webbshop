@@ -8,8 +8,8 @@ import styles from './Form.module.css';
 
 export default function CheckoutFlow() {
   const navigate = useNavigate();
-  
-  const { clearCart } = useCart(); 
+
+  const { items, clearCart } = useCart(); 
   
   const [activeStep, setActiveStep] = useState<number>(1);
   const [checkoutData, setCheckoutData] = useState<any>({
@@ -36,7 +36,8 @@ export default function CheckoutFlow() {
   const isAllStepsCompleted = 
     checkoutData.customer !== null && 
     checkoutData.shipping !== null && 
-    checkoutData.payment !== null;
+    checkoutData.payment !== null &&
+    items && items.length > 0;
 
   const handleFinalPayment = async () => {
     try {
@@ -45,6 +46,12 @@ export default function CheckoutFlow() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...checkoutData,
+          items: items.map((item: any) => ({
+            productId: item.product.id,
+            title: item.product.title,
+            price: item.product.price,
+            quantity: item.quantity
+          })),
           date: new Date().toLocaleDateString(),
         }),
       });

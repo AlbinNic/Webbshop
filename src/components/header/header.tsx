@@ -43,9 +43,9 @@ export function Header() {
 
             <nav className="nav-links">
                 {links.map(({ text, href }) => (
-                    <a key={href} href={href}>
+                    <Link key={href} to={href}>
                         {text}
-                    </a>
+                    </Link>
                 ))}
             </nav>
             
